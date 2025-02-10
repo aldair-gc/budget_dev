@@ -8,6 +8,7 @@ import com.aldairgc.budget_dev.service.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 import static java.util.Optional.ofNullable;
@@ -59,4 +60,8 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
+    @Transactional(readOnly = true)
+    public List<Transaction> findAllByUserId(Long userId) {
+        return transactionRepository.findAllByUserId(userId);
+    }
 }

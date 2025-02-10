@@ -22,7 +22,7 @@ classDiagram
      -TransactionEnum type
      -StatusEnum status
      -User user
-     -RepetitionGroup repetitionGroup
+     -Repetition repetition
   }
   
   class TransactionEnum {
@@ -38,7 +38,7 @@ classDiagram
       COMPLETED
   }
   
-  class RepetitionGroup {
+  class Repetition {
       -Integer id
       -RepeatEnum repeat
       -Transaction original
@@ -54,8 +54,8 @@ classDiagram
   }
 
   User "1" *-- "0..*" Transaction
-  Transaction "1" *-- "0..1" RepetitionGroup
-  RepetitionGroup "1" *-- "1..*" Transaction
+  Transaction "1" *-- "0..1" Repetition
+  Repetition "1" *-- "1..*" Transaction
 ```
 
 ## Docker Deployment Instructions
