@@ -2,14 +2,14 @@ package com.aldairgc.budget_dev.controller.dto.out;
 
 import com.aldairgc.budget_dev.domain.model.Transaction;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public record TransactionDtoOut(
         Long id,
         String description,
         Double amount,
-        LocalDateTime dueDate,
-        LocalDateTime expiration,
+        Date dueDate,
+        Date expiration,
         String type,
         String status,
         String frequency

@@ -1,18 +1,16 @@
 package com.aldairgc.budget_dev.controller.dto.in;
 
-import com.aldairgc.budget_dev.domain.model.FrequencyEnum;
-import com.aldairgc.budget_dev.domain.model.StatusEnum;
-import com.aldairgc.budget_dev.domain.model.Transaction;
-import com.aldairgc.budget_dev.domain.model.TransactionEnum;
+import com.aldairgc.budget_dev.domain.model.*;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public record TransactionDtoIn(
         Long id,
+        Long userId,
         String description,
         Double amount,
-        LocalDateTime dueDate,
-        LocalDateTime expiration,
+        Date dueDate,
+        Date expiration,
         String type,
         String status,
         String frequency,
@@ -22,6 +20,8 @@ public record TransactionDtoIn(
     public static Transaction toDomain(TransactionDtoIn dto) {
         var transaction = new Transaction();
         transaction.setId(dto.id);
+        transaction.setUser(new User());
+        transaction.getUser().setId(dto.userId);
         transaction.setDescription(dto.description);
         transaction.setAmount(dto.amount);
         transaction.setDueDate(dto.dueDate);

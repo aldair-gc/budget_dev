@@ -3,7 +3,7 @@ package com.aldairgc.budget_dev.domain.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 import java.util.List;
 
 @Entity(name = "transaction_tb")
@@ -17,9 +17,9 @@ public class Transaction {
 
     private Double amount;
 
-    private LocalDateTime dueDate;
+    private Date dueDate;
 
-    private LocalDateTime expiration;
+    private Date expiration;
 
     @Enumerated(EnumType.STRING)
     private TransactionEnum type;
@@ -69,19 +69,19 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public LocalDateTime getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDateTime dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
-    public LocalDateTime getExpiration() {
+    public Date getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(LocalDateTime expiration) {
+    public void setExpiration(Date expiration) {
         this.expiration = expiration;
     }
 
