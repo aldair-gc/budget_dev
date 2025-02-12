@@ -13,7 +13,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: aldair-gc/budget_dev
-  SERVER_APP_PORT: 3030
+  SERVER_APP_PORT: 3031
   CONTAINER_NAME: budget-dev
 
 
