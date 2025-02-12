@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @OpenAPIDefinition(servers = {@Server(url = "/", description = "Local server")})
 @SpringBootApplication
-public class BudgetDevApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BudgetDevApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
