@@ -6,23 +6,26 @@ Java RESTful API created for practicing.
 ```mermaid
 classDiagram
   class User {
-     -Integer id
+     -Long id
      -String name
      -String email
+     -String password
      -String passwordHash
-     -Transaction[] transactions
   }
 
   class Transaction {
-     -Integer id
+     -Long id
      -String description
      -Double amount
-     -Timestamp dueDate
-     -Timestamp expiration
+     -Date dueDate
+     -Date expiration
      -TransactionEnum type
      -StatusEnum status
+     -FrequencyEnum frequency
+     -Integer quantity
      -User user
-     -Repetition repetition
+     -Transaction original
+     -Transaction[] repetitions
   }
   
   class TransactionEnum {
@@ -38,15 +41,9 @@ classDiagram
       COMPLETED
   }
   
-  class Repetition {
-      -Integer id
-      -RepeatEnum repeat
-      -Transaction original
-      -Transaction[] repetitions
-  }
-  
   class RepeatEnum {
       <<enumeration>>
+      NONE
       DAILY
       WEEKLY
       MONTHLY
@@ -54,8 +51,11 @@ classDiagram
   }
 
   User "1" *-- "0..*" Transaction
-  Transaction "1" *-- "0..1" Repetition
-  Repetition "1" *-- "1..*" Transaction
+  Transaction "1" *-- "0..1" Transaction
+  Transaction "1" *-- "1..*" Transaction
+  Transaction *-- TransactionEnum
+  Transaction *-- StatusEnum
+  Transaction *-- RepeatEnum
 ```
 
 ## Docker Deployment Instructions
